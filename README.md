@@ -42,23 +42,67 @@ The primary goal of the project was to build a classification model that predict
    - A simpler Decision Tree model was built with a maximum depth of 3 to visualize decision-making paths.
    - The pruned tree model was evaluated for training and testing accuracy, highlighting the trade-offs between model complexity and generalization.
 
-### Results and Insights
-- **Accuracy Metrics**: Detailed performance metrics were obtained for both the full and pruned Decision Tree models.
-- **Feature Importance**: Visualizations of decision paths and feature importance were used to interpret the model's behavior and the factors most strongly associated with smoking.
-- **Confusion Matrix**: A confusion matrix heatmap was generated to illustrate the model's performance in predicting smokers and non-smokers.
+3. **K-Nearest Neighbors (KNN) Classifier**:
+   - Trained a KNeighborsClassifier to predict smoking status.
+   - Evaluated using a classification report and confusion matrix.
+
+4. **Naive Bayes Classifier**:
+   - Applied the Bernoulli Naive Bayes model (BernoulliNB).
+   - Measured performance with accuracy scores and classification reports.
+
+### Ensemble Learning
+To enhance classification performance, the project incorporated ensemble learning techniques:
+
+#### Stacking Classifier:
+- Combined `RandomForestClassifier` and `GradientBoostingClassifier` as base classifiers.
+- Used a `LogisticRegression` model as the meta-classifier (with an alternative option for SVM).
+- Evaluated individual classifier accuracies and overall ensemble performance.
+- Confusion matrix visualizations were created for deeper insights.
+
+#### Bagging Classifier:
+- Implemented a `BaggingClassifier` with a base `DecisionTreeClassifier`.
+- Tuned hyperparameters for optimal performance, including the number of estimators and max samples.
+- Visualized results using confusion matrices.
+
+### Hyperparameter Tuning and Advanced Techniques
+
+#### XGBoost Hyperparameter Tuning:
+- Utilized `GridSearchCV` to optimize parameters like `max_depth`, `n_estimators`, and `learning_rate`.
+- Achieved improved accuracy with the best parameters.
+- Applied cross-validation to evaluate the generalization of the tuned model.
+
+#### Handling Imbalanced Data:
+- Used SMOTE (Synthetic Minority Oversampling Technique) to balance the class distribution in the training data.
+- Improved model performance by addressing class imbalance.
+
+### Neural Network Implementation
+A feedforward neural network was implemented to classify smoking status:
+
+#### Architecture:
+- Input layer matched the number of features in the dataset.
+- Two hidden layers with ReLU activation.
+- Output layer with sigmoid activation for binary classification.
+
+#### Training and Evaluation:
+- Trained using the `Adam` optimizer and binary cross-entropy loss.
+- Evaluated performance with metrics such as accuracy and confusion matrices.
+- Compared neural network results with traditional machine learning models to highlight differences in predictive power.
 
 ### Conclusion
-The project successfully demonstrates how data cleaning, preprocessing, and machine learning can be applied to classify individuals based on their smoking habits using health metrics. The models built provide a reasonable prediction accuracy, with visualizations helping to interpret results.
+This project demonstrates the application of advanced machine learning and deep learning techniques to classify smoking habits based on health metrics. Ensemble models and neural networks were implemented to explore their predictive potential, each offering unique advantages in performance and interpretability.
 
 ### Dependencies
 To run this project, the following Python packages are required:
 
 ```python
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
+pandas  
+numpy  
+matplotlib  
+seaborn  
+scikit-learn  
+xgboost  
+tensorflow  
+imblearn  
 ```
 
 ## License
